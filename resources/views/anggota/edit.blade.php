@@ -24,7 +24,7 @@
                             <label for="telepon" class="block text-sm font-medium text-gray-700 dark:text-gray-300">No. Telp</label>
                             <input type="text" name="telepon" id="telepon" class="form-input rounded-md shadow-sm mt-1 block w-full" value="{{ $anggota->telepon }}" />
                         </div>
-                        <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Simpan</button>
+                        <x-primary-button>{{ __('Simpan') }}</x-primary-button>
                     </form>
                 </div>
             </div>

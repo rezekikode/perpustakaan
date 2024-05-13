@@ -35,8 +35,8 @@
                                     <a href="{{ route('anggota.edit', $item->id) }}" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">Edit</a>
                                     <form action="{{ route('anggota.destroy', $item->id) }}" method="POST" class="inline">
                                         @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Hapus</button>
+                                        @method('DELETE')                                        
+                                        <x-danger-button class="ms-3">{{ __('Hapus') }}</x-danger-button>
                                     </form>
                                 </td>
                             </tr>
