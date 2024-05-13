@@ -13,7 +13,8 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        //
+        $anggotas = Anggota::all();
+        return view('anggota.index', compact('anggotas'));
     }
 
     /**
@@ -21,7 +22,7 @@ class AnggotaController extends Controller
      */
     public function create()
     {
-        //
+        return view('anggota.create');
     }
 
     /**
@@ -29,7 +30,15 @@ class AnggotaController extends Controller
      */
     public function store(StoreAnggotaRequest $request)
     {
-        //
+        $validated = $request->validated();
+        
+        $anggota = new Anggota();
+        $anggota->nama = $validated['nama'];
+        $anggota->alamat = $validated['alamat'];
+        $anggota->telepon = $validated['telepon'];
+        $anggota->save();
+
+        return redirect()->route('anggota.index');
     }
 
     /**
@@ -45,7 +54,7 @@ class AnggotaController extends Controller
      */
     public function edit(Anggota $anggota)
     {
-        //
+        return view('anggota.edit', compact('anggota'));
     }
 
     /**
@@ -53,7 +62,14 @@ class AnggotaController extends Controller
      */
     public function update(UpdateAnggotaRequest $request, Anggota $anggota)
     {
-        //
+        $validated = $request->validated();
+
+        $anggota->nama = $validated['nama'];
+        $anggota->alamat = $validated['alamat'];
+        $anggota->telepon = $validated['telepon'];
+        $anggota->save();
+
+        return redirect()->route('anggota.index');
     }
 
     /**
@@ -61,6 +77,8 @@ class AnggotaController extends Controller
      */
     public function destroy(Anggota $anggota)
     {
-        //
+        $anggota->delete();
+
+        return redirect()->route('anggota.index');
     }
 }
